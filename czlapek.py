@@ -10,7 +10,6 @@ IODIRA = 0x00 # Pin direction register
 OLATA  = 0x14 # Register for outputs
 GPIOA  = 0x12 # Register for inputs
 
-
 a0=1
 a1=1
 a2=1
@@ -20,107 +19,6 @@ a5=1
 a6=1
 a7=1
 
-@route('/maly/<val>')
-def maly(val):
-    global a0
-    global a1
-    global a2
-    global a3
-    global a4
-    global a5
-    global a6
-    global a7
-    if (val == 'on'):
-        a1=0
-    if (val == 'off'):
-        a1=1
-    abin='0b'+str(a7)+str(a6)+str(a5)+str(a4)+str(a3)+str(a2)+str(a1)+str(a0)
-    a=int(abin, 2)
-    bus.write_byte_data(DEVICE,OLATA,a) 
-
-    return template('<b>Swiatlo maly:  {{val}}</b>!', val=val)
-
-@route('/duzy3/<val>')
-def duzy3(val):
-    global a0
-    global a1
-    global a2
-    global a3
-    global a4
-    global a5
-    global a6
-    global a7
-    if (val == 'on'):
-        a2=0
-    if (val == 'off'):
-        a2=1
-    abin='0b'+str(a7)+str(a6)+str(a5)+str(a4)+str(a3)+str(a2)+str(a1)+str(a0)
-    a=int(abin, 2)
-    bus.write_byte_data(DEVICE,OLATA,a)
-
-    return template('<b>Swiatlo duzy3:  {{val}}</b>!', val=val)
-
-@route('/duzy2/<val>')
-def duzy2(val):
-    global a0
-    global a1
-    global a2
-    global a3
-    global a4
-    global a5
-    global a6
-    global a7
-    if (val == 'on'):
-        a3=0
-    if (val == 'off'):
-        a3=1
-    abin='0b'+str(a7)+str(a6)+str(a5)+str(a4)+str(a3)+str(a2)+str(a1)+str(a0)
-    a=int(abin, 2)
-    bus.write_byte_data(DEVICE,OLATA,a)
-
-    return template('<b>Swiatlo duzy2:  {{val}}</b>!', val=val)
-
-
-@route('/hol2/<val>')
-def hol2(val):
-    global a0
-    global a1
-    global a2
-    global a3
-    global a4
-    global a5
-    global a6
-    global a7
-    if (val == 'on'):
-        a4=0
-    if (val == 'off'):
-        a4=1
-    abin='0b'+str(a7)+str(a6)+str(a5)+str(a4)+str(a3)+str(a2)+str(a1)+str(a0)
-    a=int(abin, 2)
-    bus.write_byte_data(DEVICE,OLATA,a)
-
-    return template('<b>Swiatlo hol2:  {{val}}</b>!', val=val)
-
-
-@route('/hol1/<val>')
-def hol1(val):
-    global a0
-    global a1
-    global a2
-    global a3
-    global a4
-    global a5
-    global a6
-    global a7
-    if (val == 'on'):
-        a5=0
-    if (val == 'off'):
-        a5=1
-    abin='0b'+str(a7)+str(a6)+str(a5)+str(a4)+str(a3)+str(a2)+str(a1)+str(a0)
-    a=int(abin, 2)
-    bus.write_byte_data(DEVICE,OLATA,a)
-
-    return template('<b>Swiatlo hol1:  {{val}}</b>!', val=val)
 
 @route('/relay/<relay>/<val>')
 def hol1(relay, val):
@@ -136,37 +34,37 @@ def hol1(relay, val):
     if ( val == 'on' ):
         if ( relay == 'a0' ):
             a0 = 0
-        if ( relay == 'a0' ):
+        if ( relay == 'a1' ):
             a1 = 0
-        if ( relay == 'a0' ):
+        if ( relay == 'a2' ):
             a2 = 0
-        if ( relay == 'a0' ):
+        if ( relay == 'a3' ):
             a3 = 0
-        if ( relay == 'a0' ):
+        if ( relay == 'a4' ):
             a4 = 0
-        if ( relay == 'a0' ):
+        if ( relay == 'a5' ):
             a5 = 0
-        if ( relay == 'a0' ):
+        if ( relay == 'a6' ):
             a6 = 0
-        if ( relay == 'a0' ):
+        if ( relay == 'a7' ):
             a7 = 0
 
     if ( val == 'off' ):
         if ( relay == 'a0' ):
             a0 = 1
-        if ( relay == 'a0' ):
+        if ( relay == 'a1' ):
             a1 = 1
-        if ( relay == 'a0' ):
+        if ( relay == 'a2' ):
             a2 = 1
-        if ( relay == 'a0' ):
+        if ( relay == 'a3' ):
             a3 = 1
-        if ( relay == 'a0' ):
+        if ( relay == 'a4' ):
             a4 = 1
-        if ( relay == 'a0' ):
+        if ( relay == 'a5' ):
             a5 = 1
-        if ( relay == 'a0' ):
+        if ( relay == 'a6' ):
             a6 = 1
-        if ( relay == 'a0' ):
+        if ( relay == 'a7' ):
             a7 = 1
 
     if ( val == 'status' ):
@@ -210,9 +108,6 @@ def hol1(relay, val):
                 return 'off'
             else:
                 return 'on'
-
-
-
 
     abin='0b'+str(a7)+str(a6)+str(a5)+str(a4)+str(a3)+str(a2)+str(a1)+str(a0)
     a=int(abin, 2)
