@@ -1,5 +1,9 @@
+#!/usr/local/bin/python
+# -*- coding: utf-8 -*-
+
 import smbus
 import time
+import os
 from bottle import route, run, template
 
 
@@ -118,28 +122,38 @@ def hol1(relay, val):
         if ( relay == 'a1' ):
             if ( a1 == 1 ):
                 a1=0
+                os.system('espeak -v polish  "Włączam światło w małym pokoju"')
             else:
                 a1=1
+                os.system('espeak -v polish  "Wyłączam światło w małym pokoju"')
         if ( relay == 'a2' ):
             if ( a2 == 1 ):
                 a2=0
+                os.system('espeak -v polish  "Włączam światło w dużym pokoju"')
             else:
                 a2=1
+                os.system('espeak -v polish  "Wyłączam światło w dużym pokoju"')
         if ( relay == 'a3' ):
             if ( a3 == 1 ):
                 a3=0
+                os.system('espeak -v polish  "Włączam światło w dużym pokoju"')
             else:
                 a3=1
+                os.system('espeak -v polish  "Wyłączam światło w dużym pokoju"')
         if ( relay == 'a4' ):
             if ( a4 == 1 ):
                 a4=0
+                os.system('espeak -v polish  "Włączam światło w przedpokoju"')
             else:
                 a4=1
+                os.system('espeak -v polish  "Wyłączam światło w przedpokoju"')
         if ( relay == 'a5' ):
             if ( a5 == 1 ):
                 a5=0
+                os.system('espeak -v polish  "Włączam światło w przedpokoju"')
             else:
                 a5=1
+                os.system('espeak -v polish  "Wyłączam światło w przedpokoju"')
         if ( relay == 'a6' ):
             if ( a6 == 1 ):
                 a6=0
