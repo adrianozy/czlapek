@@ -109,6 +109,48 @@ def hol1(relay, val):
             else:
                 return 'ON'
 
+    if ( val == 'toogle' ):
+        if ( relay == 'a0' ):
+            if ( a0 == 1 ):
+                a0=0
+            else:
+                a0=1
+        if ( relay == 'a1' ):
+            if ( a1 == 1 ):
+                a1=0
+            else:
+                a1=1
+        if ( relay == 'a2' ):
+            if ( a2 == 1 ):
+                a2=0
+            else:
+                a2=1
+        if ( relay == 'a3' ):
+            if ( a3 == 1 ):
+                a3=0
+            else:
+                a3=1
+        if ( relay == 'a4' ):
+            if ( a4 == 1 ):
+                a4=0
+            else:
+                a4=1
+        if ( relay == 'a5' ):
+            if ( a5 == 1 ):
+                a5=0
+            else:
+                a5=1
+        if ( relay == 'a6' ):
+            if ( a6 == 1 ):
+                a6=0
+            else:
+                a6=1
+        if ( relay == 'a7' ):
+            if ( a7 == 1 ):
+                a7=0
+            else:
+                a7=1
+
     abin='0b'+str(a7)+str(a6)+str(a5)+str(a4)+str(a3)+str(a2)+str(a1)+str(a0)
     a=int(abin, 2)
     bus.write_byte_data(DEVICE,OLATA,a)
