@@ -295,6 +295,8 @@ def relay_init():
 #        self.server_handler.start()
 #
 #    def handle_server(self):
+
+os.system('/opt/vol.sh 100')
 os.system('espeak -v polish  "Inicjuję przekaźniki"')
 relay_init()
 
