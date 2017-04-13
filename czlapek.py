@@ -5,8 +5,9 @@ import smbus
 import time
 import os
 import threading
+import json
 
-from bottle import route, run, template
+from bottle import route, run, template, static_file
 
 
 bus = smbus.SMBus(1) # Rev 2 Pi uses 1
@@ -277,6 +278,15 @@ def relay_toogle(relay):
     bus.write_byte_data(DEVICE,OLATA,a)
 
     return template('<b>Swiatlo {{relay}}:  OFF</b>!', relay=relay)
+
+@route('/cam/get/image.jpg', method='GET')
+def cam1_get():
+#    img = cam.get_image()
+#    pygame.image.save(img,"/tmp/camera3-tmp.jpg")
+#    os.system("convert -quality 40 /tmp/camera3-tmp.jpg /tmp/camera3.jpg ")
+    return static_file('image.jpg', root='/tmp')
+
+
 
 def relay_init():
     # Set all GPA pins as outputs by setting
