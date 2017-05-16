@@ -3,15 +3,13 @@
 
 import time
 import os
-import threading
 
 class Gadacz:
 
     list = []
 
     def __init__(self):
-        self.talk_handler = threading.Thread(target=self.handle_talk(), args=())
-        self.talk_handler.start()
+        print('gadacz init')
 
     def add(self, task):
         self.list.append(task)
