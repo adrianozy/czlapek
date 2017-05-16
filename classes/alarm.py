@@ -7,13 +7,14 @@ import os
 import threading
 
 
-class Alarm:
+class Alarm(threading.Thread):
 
     def __init__(self):
         print('alarm init')
+        threading.Thread.__init__(self)
 
 
-    def handle_alarm(self):
+    def run(self):
         os.system('espeak -v polish  "Uruchamiam alarm"')
         bus2 = smbus.SMBus(1)  # Rev 2 Pi uses 1
 

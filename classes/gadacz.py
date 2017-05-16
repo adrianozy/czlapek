@@ -2,19 +2,21 @@
 # -*- coding: utf-8 -*-
 
 import time
+import threading
 import os
 
-class Gadacz:
+class Gadacz(threading.Thread):
 
     list = []
 
     def __init__(self):
         print('gadacz init')
+        threading.Thread.__init__(self)
 
     def add(self, task):
         self.list.append(task)
 
-    def handle_talk(self):
+    def run(self):
 
         while True:
             size = len(self.list)
