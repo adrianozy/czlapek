@@ -8,7 +8,7 @@ import threading
 import json
 
 from bottle import route, run, template, static_file, alarm
-
+from alarm import alarm
 
 
 bus = smbus.SMBus(1) # Rev 2 Pi uses 1
