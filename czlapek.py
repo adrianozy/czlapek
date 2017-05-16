@@ -413,7 +413,7 @@ relay_init()
 alarm_handler = threading.Thread(target=handle_alarm, args=())
 alarm_handler.start()
 
-
+os.system('espeak -v polish  "Test2"')
 os.system('espeak -v polish  "Uruchamiam system"')
 os.system('espeak -v polish  "Witamy w systemie Supernova. Funkcje inteligentnego domu zostały aktywowane."')
 run(host='0.0.0.0', port=8080)
