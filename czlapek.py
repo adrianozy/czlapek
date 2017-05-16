@@ -307,8 +307,12 @@ def relay_init():
 #    def handle_server(self):
 
 os.system('/opt/vol.sh 100')
-os.system('espeak -v polish  "Inicjuję przekaźniki"')
+os.system('espeak -v polish  "Inicjuję ekspandery"')
 relay_init()
+
+alarm_handler = threading.Thread(target=handle_alarm, args=())
+alarm_handler.start()
+
 
 os.system('espeak -v polish  "Uruchamiam system"')
 os.system('espeak -v polish  "Witamy w systemie Supernova. Funkcje inteligentnego domu zostały aktywowane."')
