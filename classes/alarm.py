@@ -43,76 +43,73 @@ class Alarm(threading.Thread):
 
             if MySwitch & 0b00000001 == 0b00000001:
                 if o1 == 1:
-                    os.system('espeak -v polish  "Zamknięto okno 1 w dużym pokoju"')
+                    self.gadacz.add('o1close')
                     o1 = 0
             else:
                 if o1 == 0:
-                    os.system('espeak -v polish  "Otwarto okno 1 w dużym pokoju"')
+                    self.gadacz.add('o1open')
                     o1 = 1
 
             if MySwitch & 0b00000010 == 0b00000010:
                 if o2 == 1:
-                    os.system('espeak -v polish  "Zamknięto okno 2 w dużym pokoju"')
+                    self.gadacz.add('o2close')
                     o2 = 0
             else:
                 if o2 == 0:
-                    os.system('espeak -v polish  "Otwarto okno 2 w dużym pokoju"')
+                    self.gadacz.add('o2open')
                     o2 = 1
 
             if MySwitch & 0b00000100 == 0b00000100:
                 if o3 == 1:
-                    os.system('espeak -v polish  "Zamknięto okno 3 w dużym pokoju"')
+                    self.gadacz.add('o3close')
                     o3 = 0
             else:
                 if o3 == 0:
-                    os.system('espeak -v polish  "Otwarto okno 3 w dużym pokoju"')
+                    self.gadacz.add('o3open')
                     o3 = 1
 
             if MySwitch & 0b00001000 == 0b00001000:
                 if o4 == 1:
-                    os.system('espeak -v polish  "Zamknięto okno 1 w małym pokoju"')
+                    self.gadacz.add('o4close')
                     o4 = 0
             else:
                 if o4 == 0:
-                    os.system('espeak -v polish  "Otwarto okno 1 w małym pokoju"')
+                    self.gadacz.add('o4open')
                     o4 = 1
 
             if MySwitch & 0b00010000 == 0b00010000:
                 if o5 == 1:
-                    os.system('espeak -v polish  "Zamknięto okno 2 w małym pokoju"')
+                    self.gadacz.add('o5close')
                     o5 = 0
             else:
                 if o5 == 0:
-                    os.system('espeak -v polish  "Otwarto okno 2 w małym pokoju"')
+                    self.gadacz.add('o5open')
                     o5 = 1
 
             if MySwitch & 0b00100000 == 0b00100000:
                 if o6 == 1:
-                    os.system('espeak -v polish  "Zamknięto okno 1 w kuchni"')
+                    self.gadacz.add('o6close')
                     o6 = 0
             else:
                 if o6 == 0:
-                    os.system('espeak -v polish  "Otwarto okno 1 w kuchni"')
+                    self.gadacz.add('o6open')
                     o6 = 1
 
             if MySwitch & 0b01000000 == 0b01000000:
                 if o7 == 1:
-                    os.system('espeak -v polish  "Zamknięto okno 2 w kuchni"')
+                    self.gadacz.add('o7close')
                     o7 = 0
             else:
                 if o7 == 0:
-                    os.system('espeak -v polish  "Otwarto okno 2 w kuchni"')
+                    self.gadacz.add('o7open')
                     o7 = 1
 
             if MySwitch & 0b10000000 == 0b10000000:
                 if d1 == 1:
-                    os.system('espeak -v polish  "Zamknięto drzwi wejściowe"')
+                    self.gadacz.add('d1close')
                     d1 = 0
             else:
                 if d1 == 0:
-                    os.system('espeak -v polish  "Otwarto drzwi wejściowe"')
+                    self.gadacz.add('d1close')
                     d1 = 1
             time.sleep(1)
-
-    def dupa(self):
-        os.system('espeak -v polish  "Dupa"')

@@ -44,6 +44,38 @@ class Gadacz(threading.Thread):
                     os.system('espeak -v polish  "Wyłączam światło w przedpokoju"')
                 elif (task == 'alarm-on'):
                     os.system('espeak -v polish  "Uruchamiam alarm"')
+                elif (task == 'o1open'):
+                    os.system('espeak -v polish  "Otwarto okno 1 w dużym pokoju"')
+                elif (task == 'o1close'):
+                    os.system('espeak -v polish  "Zamknięto okno 1 w dużym pokoju"')
+                elif (task == 'o2open'):
+                    os.system('espeak -v polish  "Otwarto okno 2 w dużym pokoju"')
+                elif (task == 'o2close'):
+                    os.system('espeak -v polish  "Zamknięto okno 2 w dużym pokoju"')
+                elif (task == 'o3open'):
+                    os.system('espeak -v polish  "Otwarto okno 3 w dużym pokoju"')
+                elif (task == 'o3close'):
+                    os.system('espeak -v polish  "Zamknięto okno 3 w dużym pokoju"')
+                elif (task == 'o4open'):
+                    os.system('espeak -v polish  "Otwarto okno 1 w małym pokoju"')
+                elif (task == 'o4close'):
+                    os.system('espeak -v polish  "Zamknięto okno 1 w małym pokoju"')
+                elif (task == 'o5open'):
+                    os.system('espeak -v polish  "Otwarto okno 2 w małym pokoju"')
+                elif (task == 'o5close'):
+                    os.system('espeak -v polish  "Zamknięto okno 2 w małym pokoju"')
+                elif (task == 'o6open'):
+                    os.system('espeak -v polish  "Otwarto okno 1 w kuchni"')
+                elif (task == 'o6close'):
+                    os.system('espeak -v polish  "Zamknięto okno 1 w kuchni"')
+                elif (task == 'o7open'):
+                    os.system('espeak -v polish  "Otwarto okno 2 w kuchni"')
+                elif (task == 'o7close'):
+                    os.system('espeak -v polish  "Zamknięto okno 2 w kuchni"')
+                elif (task == 'd1open'):
+                    os.system('espeak -v polish  "Otwarto drzwi wejściowe"')
+                elif (task == 'd1close'):
+                    os.system('espeak -v polish  "Zamknięto drzwi wejściowe"')
                 else:
                     os.system('espeak -v polish  "Gadam bzdury jak mało który"')
 
