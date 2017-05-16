@@ -42,6 +42,8 @@ class Gadacz(threading.Thread):
                     os.system('espeak -v polish  "Włączam światło w przedpokoju"')
                 elif (task == 'a5off'):
                     os.system('espeak -v polish  "Wyłączam światło w przedpokoju"')
+                elif (task == 'alarm-on'):
+                    os.system('espeak -v polish  "Uruchamiam alarm"')
                 else:
                     os.system('espeak -v polish  "Gadam bzdury jak mało który"')
 

@@ -5,17 +5,17 @@ import smbus
 import time
 import os
 import threading
-
+from classes.gadacz import Gadacz
 
 class Alarm(threading.Thread):
 
-    def __init__(self):
+    def __init__(self, gadacz):
         print('alarm init')
         threading.Thread.__init__(self)
-
+        self.gadacz = gadacz
 
     def run(self):
-        os.system('espeak -v polish  "Uruchamiam alarm"')
+        self.gadacz.add('alarm-on')
         bus2 = smbus.SMBus(1)  # Rev 2 Pi uses 1
 
         DEVICE2 = 0x27  # Device address (A0-A2)

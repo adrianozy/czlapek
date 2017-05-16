@@ -267,7 +267,7 @@ def relay_toogle(relay):
         else:
             a5=1
             if ( talk == '1' ):
-                gadacz_instance.add('a6on')
+                gadacz_instance.add('a5off')
     if ( relay == 'a6' ):
         if ( a6 == 1 ):
             a6=0
@@ -302,12 +302,12 @@ os.system('/opt/vol.sh 100')
 #os.system('espeak -v polish  "Inicjuję ekspandery"')
 relay_init()
 
-alarm_instance = Alarm()
+alarm_instance = Alarm(gadacz_instance)
 alarm_instance.start()
 #alarm_handler = threading.Thread(target=alarm_instance.handle_alarm(), args=())
 #alarm_handler.start()
 
-os.system('espeak -v polish  "Uruchamiam system"')
+#os.system('espeak -v polish  "Uruchamiam system"')
 #os.system('espeak -v polish  "Witamy w systemie Supernova. Funkcje inteligentnego domu zostały aktywowane."')
 
 #talk_handler = threading.Thread(target=gadacz_instance.handle_talk(), args=())
