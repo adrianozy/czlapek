@@ -115,7 +115,7 @@ class Relay():
                 self.a4 = 0
                 self.gadacz.add('a4on')
             else:
-                a4 = 1
+                self.a4 = 1
                 self.gadacz.add('a4off')
         elif (relay == 'a5'):
             if (self.a5 == 1):
