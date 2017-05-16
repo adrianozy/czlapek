@@ -21,7 +21,7 @@ class Gadacz(threading.Thread):
         while True:
             size = len(self.list)
             if (size > 0):
-                task = self.mylist.pop(0)
+                task = self.list.pop(0)
                 if (task == 'a1on'):
                     os.system('espeak -v polish  "Włączam światło w małym pokoju"')
                 elif (task == 'a1off'):
