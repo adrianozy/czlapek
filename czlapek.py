@@ -302,7 +302,7 @@ os.system('/opt/vol.sh 100')
 #os.system('espeak -v polish  "Inicjuję ekspandery"')
 relay_init()
 
-alarm_instance = Alarm()
+alarm_instance = Alarm
 
 alarm_handler = threading.Thread(target=alarm_instance.handle_alarm(), args=())
 alarm_handler.start()
