@@ -1,10 +1,13 @@
-import os
+#!/usr/local/bin/python
+# -*- coding: utf-8 -*-
+
 import smbus
 import time
+import os
 import threading
 
 
-class alarm:
+class Alarm:
 
     def __init__(self):
         self.alarm_handler = threading.Thread(target=self.handle_alarm, args=())

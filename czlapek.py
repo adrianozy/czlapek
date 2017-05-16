@@ -7,8 +7,8 @@ import os
 import threading
 import json
 
-from bottle import route, run, template, static_file, alarm
-from alarm import alarm
+from bottle import route, run, template, static_file
+from classes.alarm import Alarm
 
 
 bus = smbus.SMBus(1) # Rev 2 Pi uses 1
@@ -306,7 +306,7 @@ os.system('/opt/vol.sh 100')
 os.system('espeak -v polish  "Inicjuję ekspandery"')
 relay_init()
 
-alarm_instance = alarm
+alarm_instance = Alarm()
 
 os.system('espeak -v polish  "Uruchamiam system"')
 os.system('espeak -v polish  "Witamy w systemie Supernova. Funkcje inteligentnego domu zostały aktywowane."')
