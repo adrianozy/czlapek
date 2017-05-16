@@ -299,19 +299,17 @@ def relay_init():
 
 
 os.system('/opt/vol.sh 100')
-#os.system('espeak -v polish  "Inicjuję ekspandery"')
+os.system('espeak -v polish  "Inicjuję ekspandery"')
 relay_init()
 
 alarm_instance = Alarm(gadacz_instance)
 alarm_instance.start()
-#alarm_handler = threading.Thread(target=alarm_instance.handle_alarm(), args=())
-#alarm_handler.start()
 
-#os.system('espeak -v polish  "Uruchamiam system"')
-#os.system('espeak -v polish  "Witamy w systemie Supernova. Funkcje inteligentnego domu zostały aktywowane."')
 
-#talk_handler = threading.Thread(target=gadacz_instance.handle_talk(), args=())
-#talk_handler.start()
+os.system('espeak -v polish  "Uruchamiam system"')
+os.system('espeak -v polish  "Witamy w systemie Supernova. Funkcje inteligentnego domu zostały aktywowane."')
+
+
 gadacz_instance.start()
 
 run(host='0.0.0.0', port=8080)
