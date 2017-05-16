@@ -10,7 +10,7 @@ import threading
 class Alarm:
 
     def __init__(self):
-        self.alarm_handler = threading.Thread(target=self.handle_alarm, args=())
+        self.alarm_handler = threading.Thread(target=self.handle_alarm(), args=())
         self.alarm_handler.start()
 
     def handle_alarm(self):

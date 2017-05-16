@@ -9,9 +9,11 @@ import json
 
 from bottle import route, run, template, static_file
 from classes.alarm import Alarm
-
+from classes.gadacz import Gadacz
 
 bus = smbus.SMBus(1) # Rev 2 Pi uses 1
+
+
 
 DEVICE = 0x20 # Device address (A0-A2)
 IODIRA = 0x00 # Pin direction register
@@ -212,6 +214,8 @@ def relay_toogle(relay):
     global a6
     global a7
 
+    global gadacz
+
     if ( relay == 'a0' ):
         if ( a0 == 1 ):
             a0=0
@@ -221,47 +225,49 @@ def relay_toogle(relay):
         if ( a1 == 1 ):
             a1=0
             if ( talk == '1' ):
-                os.system('espeak -v polish  "Włączam światło w małym pokoju"')
+                gadacz.add('a1on')
         else:
             a1=1
             if ( talk == '1' ):
-                os.system('espeak -v polish  "Wyłączam światło w małym pokoju"')
+                gadacz.add('a1off')
+
     if ( relay == 'a2' ):
         if ( a2 == 1 ):
             a2=0
             if ( talk == '1' ):
-                os.system('espeak -v polish  "Włączam światło w dużym pokoju"')
+                gadacz.add('a2on')
+
         else:
             a2=1
             if ( talk == '1' ):
-                os.system('espeak -v polish  "Wyłączam światło w dużym pokoju"')
+                gadacz.add('a2off')
     if ( relay == 'a3' ):
         if ( a3 == 1 ):
             a3=0
             if ( talk == '1' ):
-                os.system('espeak -v polish  "Włączam światło w dużym pokoju"')
+                gadacz.add('a3on')
         else:
             a3=1
             if ( talk == '1' ):
-                os.system('espeak -v polish  "Wyłączam światło w dużym pokoju"')
+                gadacz.add('a3off')
     if ( relay == 'a4' ):
         if ( a4 == 1 ):
             a4=0
             if ( talk == '1' ):
-                os.system('espeak -v polish  "Włączam światło w przedpokoju"')
+                gadacz.add('a4on')
         else:
             a4=1
             if ( talk == '1' ):
-                os.system('espeak -v polish  "Wyłączam światło w przedpokoju"')
+                gadacz.add('a4off')
     if ( relay == 'a5' ):
         if ( a5 == 1 ):
             a5=0
             if ( talk == '1' ):
-                os.system('espeak -v polish  "Włączam światło w przedpokoju"')
+                gadacz.add('a5on')
         else:
             a5=1
             if ( talk == '1' ):
-                os.system('espeak -v polish  "Wyłączam światło w przedpokoju"')
+                gadacz.add('a6on')
     if ( relay == 'a6' ):
         if ( a6 == 1 ):
             a6=0
@@ -300,6 +306,10 @@ alarm_instance = Alarm()
 
 os.system('espeak -v polish  "Uruchamiam system"')
 os.system('espeak -v polish  "Witamy w systemie Supernova. Funkcje inteligentnego domu zostały aktywowane."')
+
+gadacz = Gadacz()
+
+
 run(host='0.0.0.0', port=8080)
 
 os.system('espeak -v polish  "Wyłączam system. Dziękujemy za skorzystanie z oprogramowania Adrianozy Didżital Studio. Miłego dnia."')
