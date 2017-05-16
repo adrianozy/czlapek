@@ -39,13 +39,12 @@ def set_talk(val):
         else:
             return 'OFF'
     if ( val == 'toogle' ):
-	if ( talk == '1' ):
-	    talk='0'
+        if ( talk == '1' ):
+            talk='0'
             return 'OFF'
-	else:
-	    talk='1'
+        else:
+            talk='1'
             return 'ON'
-
 
     if ( val == '1' ):
         talk='1'
@@ -214,80 +213,71 @@ def relay_toogle(relay):
     global a7
 
     if ( relay == 'a0' ):
-	if ( a0 == 1 ):
-	    a0=0
-	else:
-	    a0=1
+        if ( a0 == 1 ):
+            a0=0
+        else:
+            a0=1
     if ( relay == 'a1' ):
-	if ( a1 == 1 ):
-	    a1=0
+        if ( a1 == 1 ):
+            a1=0
             if ( talk == '1' ):
-	        os.system('espeak -v polish  "Włączam światło w małym pokoju"')
-	else:
-	    a1=1
+                os.system('espeak -v polish  "Włączam światło w małym pokoju"')
+        else:
+            a1=1
             if ( talk == '1' ):
                 os.system('espeak -v polish  "Wyłączam światło w małym pokoju"')
     if ( relay == 'a2' ):
-	if ( a2 == 1 ):
+        if ( a2 == 1 ):
             a2=0
             if ( talk == '1' ):
                 os.system('espeak -v polish  "Włączam światło w dużym pokoju"')
-	else:
-	    a2=1
+        else:
+            a2=1
             if ( talk == '1' ):
                 os.system('espeak -v polish  "Wyłączam światło w dużym pokoju"')
     if ( relay == 'a3' ):
-	if ( a3 == 1 ):
-	    a3=0
+        if ( a3 == 1 ):
+            a3=0
             if ( talk == '1' ):
                 os.system('espeak -v polish  "Włączam światło w dużym pokoju"')
-	else:
-	    a3=1
+        else:
+            a3=1
             if ( talk == '1' ):
-	        os.system('espeak -v polish  "Wyłączam światło w dużym pokoju"')
+                os.system('espeak -v polish  "Wyłączam światło w dużym pokoju"')
     if ( relay == 'a4' ):
-	if ( a4 == 1 ):
-	    a4=0
+        if ( a4 == 1 ):
+            a4=0
             if ( talk == '1' ):
-	        os.system('espeak -v polish  "Włączam światło w przedpokoju"')
-	else:
-	    a4=1
+                os.system('espeak -v polish  "Włączam światło w przedpokoju"')
+        else:
+            a4=1
             if ( talk == '1' ):
-	        os.system('espeak -v polish  "Wyłączam światło w przedpokoju"')
+                os.system('espeak -v polish  "Wyłączam światło w przedpokoju"')
     if ( relay == 'a5' ):
-	if ( a5 == 1 ):
-	    a5=0
+        if ( a5 == 1 ):
+            a5=0
             if ( talk == '1' ):
-	        os.system('espeak -v polish  "Włączam światło w przedpokoju"')
-	else:
-	    a5=1
+                os.system('espeak -v polish  "Włączam światło w przedpokoju"')
+        else:
+            a5=1
             if ( talk == '1' ):
-	        os.system('espeak -v polish  "Wyłączam światło w przedpokoju"')
+                os.system('espeak -v polish  "Wyłączam światło w przedpokoju"')
     if ( relay == 'a6' ):
-	if ( a6 == 1 ):
-	    a6=0
-	else:
-	    a6=1
+        if ( a6 == 1 ):
+            a6=0
+        else:
+            a6=1
     if ( relay == 'a7' ):
-	if ( a7 == 1 ):
-	    a7=0
-	else:
-	    a7=1
+        if ( a7 == 1 ):
+            a7=0
+        else:
+            a7=1
 
     abin='0b'+str(a7)+str(a6)+str(a5)+str(a4)+str(a3)+str(a2)+str(a1)+str(a0)
     a=int(abin, 2)
     bus.write_byte_data(DEVICE,OLATA,a)
 
     return template('<b>Swiatlo {{relay}}:  OFF</b>!', relay=relay)
-
-@route('/cam/get/image.jpg', method='GET')
-def cam1_get():
-#    img = cam.get_image()
-#    pygame.image.save(img,"/tmp/camera3-tmp.jpg")
-#    os.system("convert -quality 40 /tmp/camera3-tmp.jpg /tmp/camera3.jpg ")
-    return static_file('image.jpg', root='/tmp')
-
-
 
 def relay_init():
     # Set all GPA pins as outputs by setting
