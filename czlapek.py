@@ -60,7 +60,7 @@ def relay_toogle(relay):
 
 
 
-os.system('/opt/vol.sh 80')
+os.system('/opt/vol.sh 90')
 #os.system('espeak -v polish  "Inicjuję ekspandery"')
 
 
