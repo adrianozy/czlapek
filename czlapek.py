@@ -6,6 +6,7 @@ import time
 import os
 import threading
 import json
+import pygame
 
 from bottle import route, run, template, static_file
 from classes.alarm import Alarm
@@ -60,16 +61,21 @@ def relay_toogle(relay):
 
 
 
-os.system('/opt/vol.sh 90')
+os.system('/opt/vol.sh 100')
 #os.system('espeak -v polish  "Inicjuję ekspandery"')
 
+pygame.mixer.init()
+
+pygame.mixer.music.load('/opt/sounds/intro.mp3')
+pygame.mixer.music.play()
+pygame.mixer.music.queue('/opt/sounds/intro.wav')
 
 alarm_instance = Alarm(gadacz_instance)
 alarm_instance.start()
 
 
-os.system('espeak -v polish  "Uruchamiam system"')
-#os.system('espeak -v polish  "Witamy w systemie Supernova. Funkcje inteligentnego domu zostały aktywowane."')
+os.system('espeak -v polish -s 200 "Uruchamiam system"')
+os.system('espeak -v polish -s 200 "Witamy w systemie Supernova. Funkcje inteligentnego domu zostały aktywowane."')
 
 
 gadacz_instance.start()

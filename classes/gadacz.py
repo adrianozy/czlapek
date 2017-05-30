@@ -4,6 +4,7 @@
 import time
 import threading
 import os
+import pygame
 
 class Gadacz(threading.Thread):
 
@@ -11,6 +12,7 @@ class Gadacz(threading.Thread):
 
     def __init__(self):
         print('gadacz init')
+        pygame.mixer.init()
         threading.Thread.__init__(self)
 
     def add(self, task):
@@ -45,38 +47,53 @@ class Gadacz(threading.Thread):
                 elif (task == 'alarm-on'):
                     os.system('espeak -v polish  "Uruchamiam alarm"')
                 elif (task == 'o1open'):
-                    os.system('espeak -v polish  "Otwarto okno 1 w dużym pokoju"')
+                    #os.system('espeak -v polish  "Otwarto okno 1 w dużym pokoju"')
+                    pygame.mixer.Sound("/opt/sounds/open.wav").play()
                 elif (task == 'o1close'):
-                    os.system('espeak -v polish  "Zamknięto okno 1 w dużym pokoju"')
+                    #os.system('espeak -v polish  "Zamknięto okno 1 w dużym pokoju"')
+                    pygame.mixer.Sound("/opt/sounds/close.wav").play()
                 elif (task == 'o2open'):
-                    os.system('espeak -v polish  "Otwarto okno 2 w dużym pokoju"')
+                    #os.system('espeak -v polish  "Otwarto okno 2 w dużym pokoju"')
+                    pygame.mixer.Sound("/opt/sounds/open.wav").play()
                 elif (task == 'o2close'):
-                    os.system('espeak -v polish  "Zamknięto okno 2 w dużym pokoju"')
+                    #os.system('espeak -v polish  "Zamknięto okno 2 w dużym pokoju"')
+                    pygame.mixer.Sound("/opt/sounds/close.wav").play()
                 elif (task == 'o3open'):
-                    os.system('espeak -v polish  "Otwarto okno 3 w dużym pokoju"')
+                    #os.system('espeak -v polish  "Otwarto okno 3 w dużym pokoju"')
+                    pygame.mixer.Sound("/opt/sounds/open.wav").play()
                 elif (task == 'o3close'):
-                    os.system('espeak -v polish  "Zamknięto okno 3 w dużym pokoju"')
+                    #os.system('espeak -v polish  "Zamknięto okno 3 w dużym pokoju"')
+                    pygame.mixer.Sound("/opt/sounds/close.wav").play()
                 elif (task == 'o4open'):
-                    os.system('espeak -v polish  "Otwarto okno 1 w małym pokoju"')
+                    #os.system('espeak -v polish  "Otwarto okno 1 w małym pokoju"')
+                    pygame.mixer.Sound("/opt/sounds/open.wav").play()
                 elif (task == 'o4close'):
-                    os.system('espeak -v polish  "Zamknięto okno 1 w małym pokoju"')
+                    #os.system('espeak -v polish  "Zamknięto okno 1 w małym pokoju"')
+                    pygame.mixer.Sound("/opt/sounds/close.wav").play()
                 elif (task == 'o5open'):
-                    os.system('espeak -v polish  "Otwarto okno 2 w małym pokoju"')
+                    #os.system('espeak -v polish  "Otwarto okno 2 w małym pokoju"')
+                    pygame.mixer.Sound("/opt/sounds/open.wav").play()
                 elif (task == 'o5close'):
-                    os.system('espeak -v polish  "Zamknięto okno 2 w małym pokoju"')
+                    #os.system('espeak -v polish  "Zamknięto okno 2 w małym pokoju"')
+                    pygame.mixer.Sound("/opt/sounds/close.wav").play()
                 elif (task == 'o6open'):
-                    os.system('espeak -v polish  "Otwarto okno 1 w kuchni"')
+                    #os.system('espeak -v polish  "Otwarto okno 1 w kuchni"')
+                    pygame.mixer.Sound("/opt/sounds/open.wav").play()
                 elif (task == 'o6close'):
-                    os.system('espeak -v polish  "Zamknięto okno 1 w kuchni"')
+                    #os.system('espeak -v polish  "Zamknięto okno 1 w kuchni"')
+                    pygame.mixer.Sound("/opt/sounds/close.wav").play()
                 elif (task == 'o7open'):
-                    os.system('espeak -v polish  "Otwarto okno 2 w kuchni"')
+                    #os.system('espeak -v polish  "Otwarto okno 2 w kuchni"')
+                    pygame.mixer.Sound("/opt/sounds/open.wav").play()
                 elif (task == 'o7close'):
-                    os.system('espeak -v polish  "Zamknięto okno 2 w kuchni"')
+                    #os.system('espeak -v polish  "Zamknięto okno 2 w kuchni"')
+                    pygame.mixer.Sound("/opt/sounds/close.wav").play()
                 elif (task == 'd1open'):
-                    os.system('espeak -v polish  "Otwarto drzwi wejściowe"')
+                    #os.system('espeak -v polish  "Otwarto drzwi wejściowe"')
+                    pygame.mixer.Sound("/opt/sounds/open.wav").play()
                 elif (task == 'd1close'):
                     os.system('espeak -v polish  "Zamknięto drzwi wejściowe"')
                 else:
                     os.system('espeak -v polish  "Gadam bzdury jak mało który"')
 
-            time.sleep(1)
+            time.sleep(0.5)
