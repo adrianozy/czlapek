@@ -96,4 +96,4 @@ class Gadacz(threading.Thread):
                 else:
                     os.system('espeak -v polish  "Gadam bzdury jak mało który"')
 
-            time.sleep(0.5)
+            time.sleep(0.2)
