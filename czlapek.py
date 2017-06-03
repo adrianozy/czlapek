@@ -50,8 +50,7 @@ def set_talk(val):
 @route('/gadacz/status/<val>')
 def gadacz_status(val):
     global gadacz_instance
-    print('status')
-    return gadacz_instance.status(val)
+    return str(gadacz_instance.status(val))
 
 @route('/gadacz/enable/<val>')
 def gadacz_enable(val):

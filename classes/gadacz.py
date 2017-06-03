@@ -17,6 +17,9 @@ class Gadacz(threading.Thread):
         print('gadacz init')
         pygame.mixer.init()
         threading.Thread.__init__(self)
+        self.okna = 1
+        self.drzwi = 1
+        self.swiatlo = 1
 
     def add(self, task):
         self.list.append(task)
