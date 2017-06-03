@@ -47,7 +47,36 @@ def set_talk(val):
         talk = '0'
         return '<b>Talk:  OFF</b>!'
 
+@route('/gadacz/status/<val>')
+def gadacz_status(val):
+    if (val == 'okna'):
+        return gadacz_instance.okna
+    if (val == 'drzwi'):
+        return gadacz_instance.drzwi
+    if (val == 'swiatlo'):
+        return gadacz_instance.swiatlo
 
+@route('/gadacz/enable/<val>')
+def gadacz_enable(val):
+    if (val == 'okna'):
+        gadacz_instance.okna = 1
+    if (val == 'drzwi'):
+        gadacz_instance.drzwi = 1
+    if (val == 'swiatlo'):
+        gadacz_instance.swiatlo = 1
+
+@route('/gadacz/disable/<val>')
+def gadacz_enable(val):
+    if (val == 'okna'):
+        gadacz_instance.okna = 0
+    if (val == 'drzwi'):
+        gadacz_instance.drzwi = 0
+    if (val == 'swiatlo'):
+        gadacz_instance.swiatlo = 0
+
+@route('/gadacz/toggle/<val>')
+def gadacz_toggle(val):
+    gadacz_instance.toggle(val)
 
 @route('/relay/status/<relay>')
 def relay_status(relay):
