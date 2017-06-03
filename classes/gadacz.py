@@ -38,6 +38,14 @@ class Gadacz(threading.Thread):
             else:
                 self.swiatlo = 1
 
+    def status(self, val):
+        if (val == 'okna'):
+            return self.okna
+        if (val == 'drzwi'):
+            return self.drzwi
+        if (val == 'swiatlo'):
+            return self.swiatlo
+
     def run(self):
 
         while True:
