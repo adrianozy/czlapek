@@ -49,15 +49,21 @@ def set_talk(val):
 
 @route('/gadacz/status/<val>')
 def gadacz_status(val):
+    global gadacz_instance
+    print 'status'
     if (val == 'okna'):
+        print 'status-okna'
         return gadacz_instance.okna
     if (val == 'drzwi'):
+        print 'status-drzwi'
         return gadacz_instance.drzwi
     if (val == 'swiatlo'):
+        print 'status-swiatlo'
         return gadacz_instance.swiatlo
 
 @route('/gadacz/enable/<val>')
 def gadacz_enable(val):
+    global gadacz_instance
     if (val == 'okna'):
         gadacz_instance.okna = 1
     if (val == 'drzwi'):
@@ -66,7 +72,8 @@ def gadacz_enable(val):
         gadacz_instance.swiatlo = 1
 
 @route('/gadacz/disable/<val>')
-def gadacz_enable(val):
+def gadacz_disable(val):
+    global gadacz_instance
     if (val == 'okna'):
         gadacz_instance.okna = 0
     if (val == 'drzwi'):
@@ -76,6 +83,7 @@ def gadacz_enable(val):
 
 @route('/gadacz/toggle/<val>')
 def gadacz_toggle(val):
+    global gadacz_instance
     gadacz_instance.toggle(val)
 
 @route('/relay/status/<relay>')
@@ -103,8 +111,8 @@ alarm_instance = Alarm(gadacz_instance)
 alarm_instance.start()
 
 
-os.system('espeak -v polish -s 200 "Uruchamiam system"')
-os.system('espeak -v polish -s 200 "Witamy w systemie Supernova. Funkcje inteligentnego domu zostały aktywowane."')
+#os.system('espeak -v polish -s 200 "Uruchamiam system"')
+#os.system('espeak -v polish -s 200 "Witamy w systemie Supernova. Funkcje inteligentnego domu zostały aktywowane."')
 
 
 gadacz_instance.start()
